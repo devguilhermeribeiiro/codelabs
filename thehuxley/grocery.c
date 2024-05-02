@@ -7,6 +7,14 @@ struct priceList
     float price;
 }
 
+struct priceList PriceList[] = {
+
+    {"Coconut Cookie", 5.30},
+    {"Cream Cracker", 6.00},
+    {"Nikito", 3.20},
+    {"Mini Soda", 2.50},
+}
+
 void clearScreen() 
 {
     #ifdef _WIN32
@@ -18,50 +26,38 @@ void clearScreen()
 
 void *priceTable()
 {
-    struct priceList PriceList[] = {
-
-        {"Coconut Cookie", 5.30},
-        {"Cream Cracker", 6.00},
-        {"Nikito", 3.20},
-        {"Mini Soda", 2.50},
-    }
-
     printf("_____Price Table_____\n");
-    for (int i = 0; i < sizeof(PriceList) / sizeof(PriceList[0]); i++){
-        printf("%s - R$ %.2f\n", PriceList[i].name, PriceList[i].price)
+    for (int i = 0; i < sizeof(PriceList) / sizeof(PriceList[0]); i++) {
+        printf("%s - R$ %.2f\n", PriceList[i].name, PriceList[i].price);
     }
 
 }
 
 int main()
 {
-    *priceTable();
+    void *priceTable();
 
-    char product;
+    char product[100];
     int units;
     float total;
 
 
     printf("_____________________\n
     What's u'll buy?: \n");
-    scanf("%s", &product);
+    scanf("%s", product);
     printf("How much units?: \n
-            _____________________\n");
+    _____________________\n");
     scanf("%d", &units);
 
     for (int i = 0; sizeof(PriceList) / sizeof(PriceList[0]); i++) {
         
-        if (PriceList[i].name = product){
+        if (PriceList[i].name == product){
             
-            if (units > 15){
-                total = PriceList[i].price - 0.15;
-            } else if (total > 40.00) {
+            if (units > 15 && total > 40.00){
                 total = PriceList[i].price - 0.15;
             }
         }
     }
-
-
 
     clearScreen();
 
@@ -77,7 +73,7 @@ int main()
         clearScreen();
         char response;
         printf("Choose another item?[y/n]: ");
-        scanf("%s", &response)
+        scanf("%s", &response);
         if (response == "n") {
             prinf("Ty, see u!");
         }
