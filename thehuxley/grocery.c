@@ -47,7 +47,7 @@ float calculateTotal(char *product, int units)
     float total = unitPrice * units;
 
     if (units > 15 || total > 40.00) {
-        total *= 0.85; // Aplica 15% de desconto
+        total *= 0.85; 
     }
 
     return total;
@@ -63,7 +63,7 @@ int main()
     printf("_____________________\n\nWhich item would you like to buy? (Enter the item number): ");
     int choice;
     scanf("%d", &choice);
-    strcpy(product, PriceList[choice - 1].name); // Salva o nome do produto escolhido
+    strcpy(product, PriceList[choice - 1].name);
 
     printf("How many units?: ");
     scanf("%d", &units);
