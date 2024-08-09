@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar">
+    <div class="navbar-container">
+      <button class="button"><a href="/admin/admin_dashboard"><p>Dashboard</p></a></button>
+      <button class="button"><a href="/admin/admin_dashboard/create_article"><p>Criar Artigo</p></a></button>
+    </div>
+  </nav>
+
+  <section class="container post" >
+    <h1>
+      <%= @post.title %>
+    </h1>
+ 
+    <h4>
+      <%= @post.created_at %>
+    </h4>
+      
+    <p>
+      <%= @post.content %>
+    </p>
+  
+    <form action="/admin/admin_dashboard/destroy_article/<%= @post.id %>" method="post">
+      <button type="submit" class="button"><p>Excluir</p></button>
+      <button class="button"><a href="/admin/admin_dashboard/update_article/<%= @post.id %>">Editar</a></button>
+    </form>
+  </section>
+  </body>
+</html>
